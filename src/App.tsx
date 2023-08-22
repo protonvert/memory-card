@@ -24,9 +24,14 @@ function App() {
 
   return (
     <>
-      <img src={photo} onPointerOver={() => {
-        setPhoto('')
-      }} />
+      <div className="card w-96 bg-base-100 shadow-xl">
+        <figure className="px-2 pt-2">
+          <img src={photo} alt="landmark" className="rounded-xl" />
+        </figure>
+        <div className="card-body items-center text-center">
+          <h2 className="card-title">Boat Dock</h2>
+        </div>
+      </div>
     </>
   );
 }
