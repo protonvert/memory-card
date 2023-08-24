@@ -1,28 +1,31 @@
 import { useEffect, useState } from "react"
 
 export default function Card({ data, id, increaseScore, scrambleCards, gameReset, rounds }) {
-  const character = Array.from(data).find((elem) => elem._id === id)
   const [name, setName] = useState("")
   const [clicks, setClicks] = useState(0)
   const [image, setImage] = useState("")
-
-
+  
+  
   const handleClick = () => {
     if (clicks === 0) {
       setClicks(clicks + 1)
       scrambleCards()
       increaseScore()
     }
-
+    
     else {
       scrambleCards()
-      // gameReset()
       setClicks(clicks + 1)
     }
   }
 
-
+  if (clicks > 1) {
+    gameReset()
+  }
+  
+  
   useEffect(() => {
+    const character = Array.from(data).find((elem) => elem._id === id)
     const setCardInfo = async () => {
       if (character !== undefined) {
         setName(character.name)
@@ -31,13 +34,7 @@ export default function Card({ data, id, increaseScore, scrambleCards, gameReset
     }
     setCardInfo()
 
-  }, [data])
-
-  useEffect(() => {
-    if (clicks > 1) {
-      gameReset()
-    }
-  }, [clicks])
+  }, [data, id])
 
   useEffect(() => {
     setClicks(0)
