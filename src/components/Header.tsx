@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
-export default function Header({score}) {
-    
+export default function Header({ score }) {
+
     const [highScore, setHighScore] = useState(0)
 
-    if(score > highScore) {
+    if (score > highScore) {
         setHighScore(score)
     }
 
