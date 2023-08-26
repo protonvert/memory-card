@@ -1,4 +1,13 @@
-import { ReactNode, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
+
+type cardProps = {
+  data: any
+  id: number
+  increaseScore: () => void
+  scrambleCards: () => void
+  gameReset: () => void
+  rounds: number
+}
 
 export default function Card({
   data,
@@ -7,7 +16,7 @@ export default function Card({
   scrambleCards,
   gameReset,
   rounds,
-}) {
+}: cardProps) {
   const [name, setName] = useState("")
   const [clicks, setClicks] = useState(0)
   const [image, setImage] = useState("")
