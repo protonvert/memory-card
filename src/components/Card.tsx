@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 type cardProps = {
-  data: any
+  data: Array<{_id: number, name: string, imageUrl: string}> 
   id: number
   increaseScore: () => void
   scrambleCards: () => void
@@ -39,6 +39,7 @@ export default function Card({
   }, [clicks])
 
   useEffect(() => {
+    // console.log(data)
     const character = Array.from(data).find((elem) => elem._id === id)
     const setCardInfo = async () => {
       if (character !== undefined) {

@@ -1,6 +1,10 @@
 import { useState } from "react"
 
-export default function Header({ score }) {
+type HeaderProps = {
+    score: number
+}
+
+export default function Header({ score }: HeaderProps) {
 
     const [highScore, setHighScore] = useState(0)
 

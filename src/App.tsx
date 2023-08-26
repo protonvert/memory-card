@@ -7,7 +7,7 @@ const url = "https://api.disneyapi.dev/character"
 
 function App() {
   const [score, setScore] = useState(0)
-  const [data, setData] = useState("")
+  const [data, setData] = useState([])
   const [characterIDs, setCharacterIDs] = useState([7, 10, 11, 22, 13, 14, 15, 16, 17, 20])
   const [rounds, setRounds] = useState(0)
 
@@ -24,7 +24,6 @@ function App() {
 
   const scrambleCards = () => {
     const array = [...characterIDs]
-    console.log(array)
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       const temp = array[i];
